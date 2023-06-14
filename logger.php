@@ -144,7 +144,7 @@ $json_data = json_encode([
 
     // Avatar URL.
     // Uncoment to replace image set in webhook
-    "avatar_url" => "https://www.ntooitive.com/wp-content/uploads/2017/11/if__IP_Address_1134556.png",
+    //"avatar_url" => "https://www.ntooitive.com/wp-content/uploads/2017/11/if__IP_Address_1134556.png",
 
     // Embeds Array
     "embeds" => [
