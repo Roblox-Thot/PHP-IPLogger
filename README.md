@@ -14,3 +14,6 @@ Or just add to the file <sub>can get messy tho</sub>
 # How it looks
 
 <img width=300 src="https://user-images.githubusercontent.com/67937010/184500143-a56f4ed9-d5b5-452d-8c52-3fe90c23f4a9.png">
+
+
+# May be remade to be cleaner some day
